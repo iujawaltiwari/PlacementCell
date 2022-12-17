@@ -94,30 +94,30 @@ module.exports.create = function (req, res) {
 // sign in data
 module.exports.createSession = function (req, res) {
   // find the user
-  // User.findOne({ email: req.body.email }, function (err, user) {
+  User.findOne({ email: req.body.email }, function (err, user) {
   //   //
-  //   if (err) {
-  //     console.log("Error in finding user in signing in");
-  //     return;
-  //   }
-  //   // handle user found
-  //   if (user) {
+    if (err) {
+      console.log("Error in finding user in signing in");
+      return;
+    }
+    // handle user found
+    if (user) {
   //     // handle unmatched password
-  //     if (user.password != req.body.password) {
-  //       // user.validPassword(req.body.password)
+      if (user.password != req.body.password) {
+        // user.validPassword(req.body.password)
   //       req.flash("error", "Wrong username or password");
-  //       return res.redirect("back");
-  //     }
-  //     // handle session create
-  //     res.cookie("user_id", user.id);
+        return res.redirect("back");
+      }
+      // handle session create
+      res.cookie("user_id", user.id);
   //     req.flash("success", "Logged in successfully");
-  //     return res.redirect("/users/profile");
-  //   } else {
-  //     // handle user not found
+      return res.redirect("/users/profile");
+    } else {
+      // handle user not found
   //     req.flash("error", "Wrong username or password");
   //     console.log("Not signed in");
-  //     return res.redirect("back");
-  //   }
-  // });
+      return res.redirect("back");
+    }
+  });
 };
 
