@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = process.env.PORT || 9000;
@@ -13,9 +13,16 @@ const db = require('./config/mongoose');
 const path = require('path')
 
 
+
+
 //Set up the view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+app.use(express.urlencoded());
+
+
+app.use(cookieParser());
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
 
