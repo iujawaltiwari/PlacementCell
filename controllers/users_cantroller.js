@@ -6,7 +6,7 @@ const Interview = require('../models/interview');
 module.exports.profile = function (req, res) {
   if (req.cookies.user_id) {
     User.findById(req.cookies.user_id, function (err, user) {
-      // Student.find({}, function (err, students) {
+      Student.find({}, function (err, students) {
         // interview.find({}, function (err, interviewfetch) {
           if (err) {
             console.log("cannot fetch interview", err);
@@ -15,11 +15,11 @@ module.exports.profile = function (req, res) {
           return res.render("user_profile", {
             title: "User Profile",
             user: user,
-            // students: students,
+            students: students,
             // interviews: interviewfetch,
           });
         });
-      // });
+      });
     // });
   } else {
     console.log("entered Headers");
