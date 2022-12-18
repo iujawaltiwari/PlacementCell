@@ -7,5 +7,8 @@ const studentController = require('../controllers/student_controller');
 router.get('/addStudent', studentController.addStudent);
 
 router.post('/createStudent', studentController.createStudent);
+router.post('/editStuden',studentController.updateStudent);
+router.get('/show-student-details/:id',studentController.studentDetails);
+router.get("/edit-student-details/:id", studentController.editStudentDetails);
 
 module.exports = router;

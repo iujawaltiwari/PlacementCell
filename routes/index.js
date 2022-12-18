@@ -9,6 +9,7 @@ console.log("router loaded");
 router.get('/', homeController.home);
 router.use('/users', require('./users'));
 router.use('/student', require('./students'));
+router.use('/interview', require('./interview'));
 
 app.use(passport.initialize());
 app.use(passport.session());
