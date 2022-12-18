@@ -16,7 +16,7 @@ module.exports.profile = function (req, res) {
             title: "User Profile",
             user: user,
             students: students,
-            // interviews: interviewfetch,
+            interview: interviewfetch,
           });
         });
       });
@@ -31,24 +31,24 @@ module.exports.profile = function (req, res) {
 
 // sign up page
 module.exports.signUp = function (req, res) {
-    // if (!req.cookies.user) {
+       if (!req.cookies.user) {
       return res.render("user_sign_up", {
         title: "Placement Cell | Sign Up",
      });
-    // } else {
-    //   return res.redirect("/users/profile");
-    //  }
+      } else {
+         return res.redirect("/users/profile");
+      }
 };
 
 // sign in page
 module.exports.signIn = function (req, res) {
-    // if (!req.cookies.user_id) {
+    if (!req.cookies.user_id) {
       return res.render("user_sign_in", {
         title: "Placement Cell | Sign In",
       });
-    // } else {
-    //   return res.redirect("/users/profile");
-    // }
+    } else {
+       return res.redirect("/users/profile");
+    }
 };
 
 

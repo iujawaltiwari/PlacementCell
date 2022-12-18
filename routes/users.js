@@ -1,4 +1,5 @@
 const express = require('express');
+const { downloadCSV } = require('../controllers/csv_controller');
 const router = express.Router();
 
 const usersController = require('../controllers/users_cantroller');
@@ -13,6 +14,7 @@ router.post('/create-session', usersController.createSession);
 
 router.get('/sign-out', usersController.signOut);
 router.get('/reset-password', usersController.resetPassword);
-router.post('/user-reset-password', usersController.resetUserPassword);
 
+router.post('/user-reset-password', usersController.resetUserPassword);
+router.get('/csv/downloadcsv',downloadCSV);
 module.exports = router;
