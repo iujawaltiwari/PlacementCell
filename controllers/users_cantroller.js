@@ -16,7 +16,7 @@ module.exports.profile = function (req, res) {
             title: "User Profile",
             user: user,
             students: students,
-            interview: interviewfetch,
+            // interview: interviewfetch,
           });
         });
       });
@@ -163,7 +163,7 @@ module.exports.resetUserPassword = function (req, res) {
           $password: req.body.password,
         }
       );
-      // user.password = req.body.password;
+      user.password = req.body.password;
       user.save();
       // req.flash("success", "Password Changed Successfully");
       console.log("password changed");
