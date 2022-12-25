@@ -45,6 +45,13 @@ body {
   border-radius: 4px;
   border-width: 0;
 }
+.form-input2 input {
+  height: 40px;
+  width: 60%;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border-width: 0;
+}
 
 .headings {
   margin-left: 40%;
